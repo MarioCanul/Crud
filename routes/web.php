@@ -14,14 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/reporte', 'ReporteGastoController@index');
+Route::get('/eliminarD/{id}', 'ReporteGastoController@destroy');
+Route::get('/modificarD/{id}', 'ReporteGastoController@edit');
+Route::post('/agregarD', 'ReporteGastoController@store');
+Route::post('/modificarD/{id}', 'ReporteGastoController@update');
+Route::get('/Detalles/{id}', 'ReporteGastoController@show');
+
+
+
+
+
+Route::get('/VerRep/{id}', 'ReporteGastoController@show');
+
 Route::get('/datos', 'DatostablaController@index');
-
-//Route::get('/prueba', function () {
-  //  return view('data');
-//});
- 
-
-Route::get('/eliminar/{id}', 'DatostablaController@destroy');
-Route::get('/modificar/{id}', 'DatostablaController@edit');
-Route::post('/agregar', 'DatostablaController@store');
-Route::post('/modificar/{id}', 'DatostablaController@update');
+Route::get('/datos/eliminar/{id}', 'DatostablaController@destroy');
+Route::get('/datos/modificar/{id}', 'DatostablaController@edit');
+Route::post('/datos/agregar', 'DatostablaController@store');
+Route::post('datos/modificar/{id}', 'DatostablaController@update');

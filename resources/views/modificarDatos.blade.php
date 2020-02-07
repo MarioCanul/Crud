@@ -3,7 +3,7 @@
 <div class="row">
 
  <div class="col">
- <form action="/modificar/{{$var->id}}" method="POST">
+ <form action="/datos/modificar/{{$var->id}}" method="POST">
  @csrf
   <div class="form-group">
     <label for="Nombre">Nombre</label>

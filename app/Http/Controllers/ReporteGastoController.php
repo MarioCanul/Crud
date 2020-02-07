@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\ReporteGasto;
 use Illuminate\Http\Request;
-use App\Datostabla;
 
-class DatostablaController extends Controller
+class ReporteGastoController extends Controller
 {
-    // public function __construct(){
-    //     //$this->middleware('verified');
-
-    // }
     /**
      * Display a listing of the resource.
      *
@@ -18,10 +14,11 @@ class DatostablaController extends Controller
      */
     public function index()
     {
-        $data = Datostabla::all();
+        $data = Reportegasto::all();
 
-        return view('data',['Setdata' => $data]);
+        return view('reporte',['Setdata' => $data]);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,7 +26,7 @@ class DatostablaController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -39,11 +36,12 @@ class DatostablaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {  $route = "/datos";
+    {
+        $route = "/reporte";
         //ar_dump($request);
-        $var = new Datostabla();
-        $var->Nombre = $request->Nombre;
-        $var->Costo = $request->Costo;
+        $var = new ReporteGasto();
+        $var->Descripcion = $request->des;
+        
         $var->save();
         return redirect($route);
     }
@@ -51,45 +49,46 @@ class DatostablaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\ReporteGasto  $reporteGasto
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $dato =  Datostabla::find($id)->reporteGastos()->first();
-       // return view('VerRep',['Setdata' => $dato]);
-        return dd($dato);
+        $reporte =  ReporteGasto::findOrFail($id);
+        $gastos = $reporte->gastos()->get();
+        return view('Detalles',['Setdata' => $gastos, 'reporte' => $reporte]);
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\ReporteGasto  $reporteGasto
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        // $route ="/datos";
-        $dato =  Datostabla::findOrFail($id);
-          
-       
-        return view('modificarDatos',['var' => $dato]);
+         $route ="/reporte";
+         $dato =  ReporteGasto::findOrFail($id);
+               
+        return view('modificarD',['var' => $dato]);
     }
+    
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\ReporteGasto  $reporteGasto
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-        {
-        var_dump($id);
-        $route ="/datos";
-        $var = Datostabla::findOrFail($id);
-        $var->Nombre = $request->Nombre;
-        $var->Costo = $request->Costo;
+    {
+        var_dump($request['']);
+        $route ="/reporte";
+        $var = ReporteGasto::findOrFail($id);
+        $var->Descripcion = $request->des;
+       
         $var->save();
         return redirect($route);
     }
@@ -97,14 +96,14 @@ class DatostablaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\ReporteGasto  $reporteGasto
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-       $route ="/datos";
-     $dato =  Datostabla::findOrFail($id);
-     $dato->delete();
-       return redirect($route);
+          $route ="/reporte";
+        $dato =  ReporteGasto::findOrFail($id);
+        $dato->delete();
+          return redirect($route);
     }
 }
