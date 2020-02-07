@@ -21,11 +21,7 @@ Route::post('/datos/reporte/agregarD', 'ReporteGastoController@store');
 Route::post('/datos/reporte/modificarD/{id}', 'ReporteGastoController@update');
  Route::get('/datos/reporte/Detalles/{id}', 'ReporteGastoController@show');
 
-
-
-
-
-// Route::get('/datos/DescripcionCompra{id}', 'ReporteGastoController@show2');
+ Route::get('/datos/DetallesCompras/{id}', 'ReporteGastoController@DetallesComp');
 
 Route::get('/datos', 'DatostablaController@index');
 Route::get('/datos/eliminar/{id}', 'DatostablaController@destroy');

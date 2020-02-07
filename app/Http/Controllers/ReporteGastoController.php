@@ -59,14 +59,12 @@ class ReporteGastoController extends Controller
         return view('Detalles',['Setdata' => $gastos, 'reporte' => $reporte]);
 
     }
-    // public function show($id)
-    // {
-    //     $dato = Datostabla::reporteGastos()->find($id); 
-    //     $reporte =  ReporteGasto::findOrFail($id);
-    //     $gastos = $reporte->gastos()->get();
-    //      return view('Detalles',['Setdata' => $dato ]);
-    //     // return dd($dato);
-    // }
+    public function DetallesComp($id)
+    {      
+       $reporte =  ReporteGasto::findOrFail($id);
+       return view('DetallesCompras',['Setdata' => $reporte]);
+    }
+   
     /**
      * Show the form for editing the specified resource.
      *
@@ -80,8 +78,6 @@ class ReporteGastoController extends Controller
                
         return view('modificarDetalles',['var' => $dato]);
     }
-    
-
     /**
      * Update the specified resource in storage.
      *
@@ -97,7 +93,6 @@ class ReporteGastoController extends Controller
         $var->save();
         return redirect($route);
     }
-
     /**
      * Remove the specified resource from storage.
      *

@@ -17,10 +17,7 @@
  
   <button type="submit" class="btn btn-primary">Submit</button>  <a href="/datos/"> <button type="button" class="btn btn-outline-dark">Dark</button></a>
 </form>
- 
-
-
- </div>
+  </div>
   </div>
  
  @endsection

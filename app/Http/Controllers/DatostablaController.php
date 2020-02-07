@@ -31,7 +31,6 @@ class DatostablaController extends Controller
     {
         
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -48,21 +47,6 @@ class DatostablaController extends Controller
         $var->save();
         return redirect($route);
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {    
-        $dato = Datostabla::reporteGastos()->find($id); 
-        //  $dato =  Datostabla::find($id)->reporteGastos()->first();
-       // return view('VerRep',['Setdata' => $dato]);
-        return dd($dato);
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -73,11 +57,8 @@ class DatostablaController extends Controller
     {
         // $route ="/datos";
         $dato =  Datostabla::findOrFail($id);
-          
-       
         return view('modificarDatos',['var' => $dato]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -95,7 +76,6 @@ class DatostablaController extends Controller
         $var->save();
         return redirect($route);
     }
-
     /**
      * Remove the specified resource from storage.
      *

@@ -9,6 +9,7 @@
     
         <tr>
             <th scope="col">Descripcion</th>
+            <th scope="col"> <a href="/datos/"><button type="submit" class="btn btn-primary">Gastos Generales</button></a></th>
             
         </tr>
      </thead>
