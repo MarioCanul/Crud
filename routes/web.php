@@ -14,18 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/reporte', 'ReporteGastoController@index');
-Route::get('/eliminarD/{id}', 'ReporteGastoController@destroy');
-Route::get('/modificarD/{id}', 'ReporteGastoController@edit');
-Route::post('/agregarD', 'ReporteGastoController@store');
-Route::post('/modificarD/{id}', 'ReporteGastoController@update');
-Route::get('/Detalles/{id}', 'ReporteGastoController@show');
+Route::get('/datos/reporte', 'ReporteGastoController@index');
+Route::get('/datos/reporte/eliminarD/{id}', 'ReporteGastoController@destroy');
+Route::get('/datos/reporte/modificarD/{id}', 'ReporteGastoController@edit');
+Route::post('/datos/reporte/agregarD', 'ReporteGastoController@store');
+Route::post('/datos/reporte/modificarD/{id}', 'ReporteGastoController@update');
+ Route::get('/datos/reporte/Detalles/{id}', 'ReporteGastoController@show');
 
 
 
 
 
-Route::get('/VerRep/{id}', 'ReporteGastoController@show');
+// Route::get('/datos/DescripcionCompra{id}', 'ReporteGastoController@show2');
 
 Route::get('/datos', 'DatostablaController@index');
 Route::get('/datos/eliminar/{id}', 'DatostablaController@destroy');

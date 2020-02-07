@@ -23,9 +23,9 @@
     Dropdown button
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="/eliminarD/{{$var->id}}">Eliminar</a>
-    <a class="dropdown-item" href="/modificarD/{{$var->id}}">Modificar</a>
-    <a class="dropdown-item" href="/Detalles/{{$var->id}}">Detalles</a>
+    <a class="dropdown-item" href="/datos/reporte/eliminarD/{{$var->id}}">Eliminar</a>
+    <a class="dropdown-item" href="/datos/reporte/modificarD/{{$var->id}}">Modificar</a>
+    <a class="dropdown-item" href="/datos/reporte/Detalles/{{$var->id}}">Detalles</a>
  </div>
   </td>
      </tr>
@@ -37,7 +37,7 @@
 
  
  <div class="col">
- <form action="/agregarD" method="POST">
+ <form action="/datos/reporte/agregarD" method="POST">
  @csrf
   <div class="form-group">
     <label for="des">Descripcion</label>

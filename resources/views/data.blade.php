@@ -11,6 +11,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Costo</th>
             <th scope="col">Acción</th>
+            <th scope="col"> <a href="/datos/reporte"><button type="submit" class="btn btn-primary">Submit</button></a></th>
         </tr>
      </thead>
      <tbody>
@@ -26,7 +27,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="/datos/eliminar/{{$var->id}}">Eliminar</a>
     <a class="dropdown-item" href="/datos/modificar/{{$var->id}}">Modificar</a>
-    <a class="dropdown-item" href="/datos/VerRep/{{$var->reporte_gasto_id}}">Detalles</a>
+    {{-- <a class="dropdown-item" href="/reporte//{{$var->reporte_gasto_id}}">Detalles</a> --}}
  </div>
   </td>
      </tr>
@@ -48,6 +49,10 @@
   <div class="form-group">
     <label for="Costo1">Costo</label>
     <input type="number" min="0" step="00.01" class="form-control" id="Costo1" name="Costo" required>
+  </div>
+  <div class="form-group">
+    <label for="Descripcion">Numero de Area</label>
+    <input type="number" min="0" max="5"step="0" class="form-control" id="Descripcion" name="Descripcion" required>
   </div>
  
   <button type="submit" class="btn btn-primary">Submit</button>

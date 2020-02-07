@@ -37,7 +37,7 @@ class ReporteGastoController extends Controller
      */
     public function store(Request $request)
     {
-        $route = "/reporte";
+        $route = "/datos/reporte";
         //ar_dump($request);
         $var = new ReporteGasto();
         $var->Descripcion = $request->des;
@@ -59,7 +59,14 @@ class ReporteGastoController extends Controller
         return view('Detalles',['Setdata' => $gastos, 'reporte' => $reporte]);
 
     }
-
+    // public function show($id)
+    // {
+    //     $dato = Datostabla::reporteGastos()->find($id); 
+    //     $reporte =  ReporteGasto::findOrFail($id);
+    //     $gastos = $reporte->gastos()->get();
+    //      return view('Detalles',['Setdata' => $dato ]);
+    //     // return dd($dato);
+    // }
     /**
      * Show the form for editing the specified resource.
      *
@@ -71,7 +78,7 @@ class ReporteGastoController extends Controller
          $route ="/reporte";
          $dato =  ReporteGasto::findOrFail($id);
                
-        return view('modificarD',['var' => $dato]);
+        return view('modificarDetalles',['var' => $dato]);
     }
     
 
@@ -83,9 +90,7 @@ class ReporteGastoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        var_dump($request['']);
-        $route ="/reporte";
+    {   $route ="/datos/reporte";
         $var = ReporteGasto::findOrFail($id);
         $var->Descripcion = $request->des;
        
@@ -101,7 +106,7 @@ class ReporteGastoController extends Controller
      */
     public function destroy($id)
     {
-          $route ="/reporte";
+          $route ="/datos/reporte";
         $dato =  ReporteGasto::findOrFail($id);
         $dato->delete();
           return redirect($route);

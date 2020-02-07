@@ -44,6 +44,7 @@ class DatostablaController extends Controller
         $var = new Datostabla();
         $var->Nombre = $request->Nombre;
         $var->Costo = $request->Costo;
+        $var->reporte_gasto_id = $request->Descripcion;
         $var->save();
         return redirect($route);
     }
@@ -55,8 +56,9 @@ class DatostablaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        $dato =  Datostabla::find($id)->reporteGastos()->first();
+    {    
+        $dato = Datostabla::reporteGastos()->find($id); 
+        //  $dato =  Datostabla::find($id)->reporteGastos()->first();
        // return view('VerRep',['Setdata' => $dato]);
         return dd($dato);
     }
