@@ -24,13 +24,18 @@
                     <td>{{$var->Nombre}}</td>
                     <td>{{$var->Costo}}</td>
                     <td>
+                        @auth
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Dropdown button
+                            
+                                
+                          
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">       
                             <a class="dropdown-item" href="/datos/eliminar/{{$var->id}}">Eliminar</a>
                             <a class="dropdown-item" href="/datos/modificar/{{$var->id}}">Modificar</a>
                         </div>
+                        @endauth
                     </td>
                 </tr>
                 @endforeach

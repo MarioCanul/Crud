@@ -11,7 +11,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Costo</th>
             <th scope="col">Acción</th>
-            <th scope="col"> <a href="/datos/reporte"><button type="submit" class="btn btn-primary">Descripciones</button></a></th>
+            <th scope="col"></a></th>
         </tr>
      </thead>
      <tbody>
@@ -24,12 +24,14 @@
 
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Menu
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="/datos/eliminar/{{$var->id}}">Eliminar</a>
-    <a class="dropdown-item" href="/datos/modificar/{{$var->id}}">Modificar</a>
-    <a class="dropdown-item" href="/datos/DetallesCompras/{{$var->reporte_gasto_id}}">Detalles</a>
-    
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        @auth           
+          <a class="dropdown-item" href="/datos/eliminar/{{$var->id}}">Eliminar</a>
+          <a class="dropdown-item" href="/datos/modificar/{{$var->id}}">Modificar</a>       
+        @endauth
+        <a class="dropdown-item" href="/datos/DetallesCompras/{{$var->reporte_gasto_id}}">Detalles</a>
+        
  </div>
   </td>
      </tr>
@@ -38,9 +40,11 @@
     </table>
   </div>
 
-
+  @auth  
  
  <div class="col">
+    
+  
  <form action="/datos/agregar/" method="POST">
  @csrf
   <div class="form-group">
@@ -62,16 +66,13 @@
       <option value=7>5</option>
     </select>
   </div>
- 
-  <button type="submit" class="btn btn-primary">Aceptar</button>
+<button type="submit" class="btn btn-primary">Aceptar</button>
 </form>
- 
-
- 
+{{-- @endauth --}}
  </div>
+ @endauth
   </div>
+ {{-- </div> --}}
  @endsection
- 
- </div>
 
  

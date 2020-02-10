@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class ReporteGastoController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->except('index','show','DetallesComp');
+
+    }
     /**
      * Display a listing of the resource.
      *

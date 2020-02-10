@@ -22,9 +22,12 @@
                 <td> <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Dropdown button
       </button>
+      
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        @auth
         <a class="dropdown-item" href="/datos/reporte/eliminarD/{{$Setdata->id}}">Eliminar</a>
         <a class="dropdown-item" href="/datos/reporte/modificarD/{{$Setdata->id}}">Modificar</a>
+        @endauth
         <a class="dropdown-item" href="/datos/reporte/Detalles/{{$Setdata->id}}">Detalles</a>
      </div>
       </td>

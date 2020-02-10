@@ -4,28 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/Aspecto.css" media="screen" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
 </head>
 <body>
-    
+    <div class="row">
+        <div  class="col">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">           
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href='/datos'>Gastos <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href='/datos/reporte'>Reportes</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    @guest 
+                    <a class="dropdown-item" href="{{ route('login')}}">Iniciar Sesion</a>
+                    @else
+                    <a class="dropdown-item" href="/datos" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">Cerrar Sesion</a> 
+                </li>
+                @endguest
+              </ul>
+              
+            </div>
+          </nav>
+        </div>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> 
+            {{-- Formualrio de deslogueo --}}
+            @csrf
+        </form>
+      </div>
+<div class="container">  
+@yield('content')
 
-    <div class="container">
-    <div><h1 align="center">Cabecera</h1></div>
-        @yield('content')
-        
-   
-
-
-        <!-- @yield('content1') -->
-
-        
-
-
-        
-       
-   <footer> <h2 align="center" >footer</h2></footer>
-    </div>
+ <footer> <h2 align="center" >footer</h2></footer>
+</div>
     
     
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

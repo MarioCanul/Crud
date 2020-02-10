@@ -9,7 +9,7 @@
     
         <tr>
             <th scope="col">Descripcion</th>
-            <th scope="col"> <a href="/datos/"><button type="submit" class="btn btn-primary">Gastos Generales</button></a></th>
+            <th scope="col"> </th>
             
         </tr>
      </thead>
@@ -24,8 +24,10 @@
     Dropdown button
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+   @auth
     <a class="dropdown-item" href="/datos/reporte/eliminarD/{{$var->id}}">Eliminar</a>
     <a class="dropdown-item" href="/datos/reporte/modificarD/{{$var->id}}">Modificar</a>
+    @endauth
     <a class="dropdown-item" href="/datos/reporte/Detalles/{{$var->id}}">Detalles</a>
  </div>
   </td>
@@ -35,23 +37,24 @@
  </table>
 </div>
 
-
+@auth
  
  <div class="col">
- <form action="/datos/reporte/agregarD" method="POST">
- @csrf
-  <div class="form-group">
-    <label for="des">Descripcion</label>
-    <input type="text" class="form-control" name="des" id="des" required >
     
-  </div>
+    <form action="/datos/reporte/agregarD" method="POST">
+ @csrf
+     <div class="form-group">
+        <label for="des">Descripcion</label>
+        <input type="text" class="form-control" name="des" id="des" required >
+    
+     </div>
   <div class="form-group">
     <button type="submit" class="btn btn-primary">Submit</button>
   </div>
  
  
-</form>
- 
+   </form>
+   @endauth
 
  
  </div>

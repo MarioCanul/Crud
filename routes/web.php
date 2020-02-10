@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/datos', function () {
+//     return view('datos');
+// });
 Route::get('/datos/reporte', 'ReporteGastoController@index');
 Route::get('/datos/reporte/eliminarD/{id}', 'ReporteGastoController@destroy');
 Route::get('/datos/reporte/modificarD/{id}', 'ReporteGastoController@edit');
@@ -28,3 +28,7 @@ Route::get('/datos/eliminar/{id}', 'DatostablaController@destroy');
 Route::get('/datos/modificar/{id}', 'DatostablaController@edit');
 Route::post('/datos/agregar', 'DatostablaController@store');
 Route::post('datos/modificar/{id}', 'DatostablaController@update');
+
+Auth::routes();
+
+
