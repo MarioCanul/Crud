@@ -1,13 +1,18 @@
 @extends('layouts.default')
-
 @section('content')
 <div class="col">
-    <div class="row">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/datos/reporte">Reportes</a></li>
+        <li class="breadcrumb-item active ">Detalles</li>
         
-        <label >{{$reporte->Descripcion}}</label>
+    </ol>
+    <div class="d-flex justify-content-center">
+        
+        
+        <label ><h3><span class="badge badge-secondary">{{$reporte->Descripcion}}</span></h3></label>
         
     </div>
-    <div class="row" ><h1>Reporte</h1></div>
+    <div class="row" ><label ><span class="badge badge-secondary">REPORTE</span></label></div>
     <div class="row">
         <table class="table">
              <thead class="thead-dark">

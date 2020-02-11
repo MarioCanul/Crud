@@ -1,8 +1,13 @@
 @extends('layouts.default')
 @section('content')
 <div class="row">
-
  <div class="col">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/datos/reporte">Reportes</a></li>
+    <li class="breadcrumb-item active">modificarD</li>
+  
+    
+</ol>
  <form action="/datos/reporte/modificarD/{{$var->id}}" method="POST">
  @csrf
   <div class="form-group">

@@ -1,3 +1,4 @@
+@extends('layouts.default')
 <div class="row">
   <div  class="col">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">           
@@ -17,7 +18,7 @@
               @guest 
               <a class="dropdown-item" href="{{ route('login')}}">Iniciar Sesion</a>
               @else
-              <a class="dropdown-item" href="#" onclick="event.preventDefault();
+              <a class="dropdown-item" href="/datos" onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">Cerrar Sesion</a> 
           </li>
           @endguest

@@ -1,11 +1,10 @@
 @extends('layouts.default')
-
 @section('content')
-
 <div class="row">
 <div class="col">
 <table class="table">
 <thead class="thead-dark">
+   
     
         <tr>
             <th scope="col">Descripcion</th>

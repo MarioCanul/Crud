@@ -1,8 +1,10 @@
 @extends('layouts.default')
-
 @section('content')
-
 <div class="col">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/datos">Gastos</a></li>
+    <li class="breadcrumb-item active">Detalles</li>   
+</ol>
     <table class="table">
     <thead class="thead-dark">
         

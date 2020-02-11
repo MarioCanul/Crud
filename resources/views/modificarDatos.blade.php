@@ -1,8 +1,11 @@
 @extends('layouts.default')
 @section('content')
 <div class="row">
-
  <div class="col">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/datos">Gastos</a></li>
+    <li class="breadcrumb-item active ">Modificar</li>
+</ol>
  <form action="/datos/modificar/{{$var->id}}" method="POST">
  @csrf
   <div class="form-group">
